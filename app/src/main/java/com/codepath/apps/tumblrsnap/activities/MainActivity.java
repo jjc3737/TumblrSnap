@@ -17,16 +17,34 @@ import com.codepath.apps.tumblrsnap.models.User;
 
 public class MainActivity extends FragmentActivity implements OnLoginHandler {
 
+    private Boolean mReturendWithResult;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mReturendWithResult = false;
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
+       // updateFragments();
+    }
+
+//    @Override
+//    protected void onPostResume() {
+//        super.onPostResume();
+//        if (mReturendWithResult) {
+//            showLoginFragment();
+//            mReturendWithResult = false;
+//        }
+//    }
+
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
         updateFragments();
     }
 
@@ -47,7 +65,7 @@ public class MainActivity extends FragmentActivity implements OnLoginHandler {
 
     public void onSettingsButton(MenuItem menuItem) {
         Intent i = new Intent(this, SettingsActivity.class);
-        startActivity(i);
+        startActivityForResult(i, 1);
     }
 
     @Override
@@ -56,6 +74,10 @@ public class MainActivity extends FragmentActivity implements OnLoginHandler {
     }
 
     private void updateFragments() {
+//        if (mReturendWithResult) {
+//            showLoginFragment();
+//            return;
+//        }
         if (User.currentUser() == null) {
             showLoginFragment();
         } else {
@@ -98,4 +120,20 @@ public class MainActivity extends FragmentActivity implements OnLoginHandler {
         }
         transaction.commit();
     }
+
+    //Todo Get info back from setting: showLoginFragment
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            if (requestCode == 1) {
+                Boolean result = data.getBooleanExtra("loggedOut", false);
+                if (result) {
+                    mReturendWithResult = true;
+                }
+            }
+        }
+    }
+
 }

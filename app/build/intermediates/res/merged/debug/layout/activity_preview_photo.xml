@@ -58,6 +58,8 @@
                 android:tag="grayscale"
                 style="@style/FrameLayoutFilter">
                 <ImageView
+                    style="@style/ImageViewFrame"/>
+                <ImageView
                     style="@style/ImageViewFrame"
                     android:id="@+id/ivGrayscale"/>
 

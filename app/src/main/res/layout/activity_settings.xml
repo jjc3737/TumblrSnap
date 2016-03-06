@@ -16,6 +16,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
         android:onClick="onLogoutButton"
-        android:text="Log out" />
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#fff"
+        android:text="Log out"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"/>
 
 </RelativeLayout>

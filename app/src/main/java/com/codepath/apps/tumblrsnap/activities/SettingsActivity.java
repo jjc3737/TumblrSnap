@@ -1,6 +1,7 @@
 package com.codepath.apps.tumblrsnap.activities;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -27,7 +28,9 @@ public class SettingsActivity extends Activity {
     public void onLogoutButton(View view) {
         TumblrSnapApp.getClient().clearAccessToken();
         User.setCurrentUser(null);
-
+        Intent intent = new Intent();
+        intent.putExtra("loggedOut", true);
+        setResult(Activity.RESULT_OK, intent);
         finish();
     }
 

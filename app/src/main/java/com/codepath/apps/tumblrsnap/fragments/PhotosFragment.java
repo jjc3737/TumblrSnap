@@ -23,6 +23,7 @@ import com.codepath.apps.tumblrsnap.R;
 import com.codepath.apps.tumblrsnap.TumblrClient;
 import com.codepath.apps.tumblrsnap.activities.PreviewPhotoActivity;
 import com.codepath.apps.tumblrsnap.models.Photo;
+import com.codepath.apps.tumblrsnap.models.User;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
@@ -76,7 +77,9 @@ public class PhotosFragment extends Fragment {
 	@Override
 	public void onResume() {
 		super.onResume();
-		reloadPhotos();
+		if (User.currentUser() != null) {
+			reloadPhotos();
+		}
 	}
 
 	@Override
