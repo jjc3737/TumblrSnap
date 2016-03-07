@@ -99,7 +99,8 @@ public class PreviewPhotoActivity extends FragmentActivity {
 		if (ivFrame != null)
 			ivFrame.setBackgroundColor(getResources().getColor(R.color.selected_filter));
 
-		displayFilter(ivPreview, effectId);
+		//displayFilter(ivPreview, effectId);
+		redisplayPreview(effectId);
 	}
 
 	private void resetFrames(){

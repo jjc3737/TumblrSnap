@@ -18,6 +18,8 @@
         android:onClick="onLogoutButton"
         android:background="@color/colorPrimaryDark"
         android:textColor="#fff"
-        android:text="Log out" />
+        android:text="Log out"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"/>
 
 </RelativeLayout>

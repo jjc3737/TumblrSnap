@@ -29,7 +29,7 @@ public class MainActivity extends FragmentActivity implements OnLoginHandler {
     protected void onResume() {
         super.onResume();
 
-       // updateFragments();
+        updateFragments();
     }
 
 //    @Override
@@ -74,10 +74,6 @@ public class MainActivity extends FragmentActivity implements OnLoginHandler {
     }
 
     private void updateFragments() {
-//        if (mReturendWithResult) {
-//            showLoginFragment();
-//            return;
-//        }
         if (User.currentUser() == null) {
             showLoginFragment();
         } else {
@@ -124,16 +120,16 @@ public class MainActivity extends FragmentActivity implements OnLoginHandler {
     //Todo Get info back from setting: showLoginFragment
 
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            if (requestCode == 1) {
-                Boolean result = data.getBooleanExtra("loggedOut", false);
-                if (result) {
-                    mReturendWithResult = true;
-                }
-            }
-        }
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        if (resultCode == RESULT_OK) {
+//            if (requestCode == 1) {
+//                Boolean result = data.getBooleanExtra("loggedOut", false);
+//                if (result) {
+//                    mReturendWithResult = true;
+//                }
+//            }
+//        }
+//    }
 
 }

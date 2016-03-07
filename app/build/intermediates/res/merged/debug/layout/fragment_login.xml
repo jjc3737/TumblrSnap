@@ -11,6 +11,8 @@
         android:layout_centerVertical="true"
         android:background="@color/colorPrimaryDark"
         android:textColor="#fff"
-        android:text="Login to Tumblr" />
+        android:text="Login to Tumblr"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"/>
 
 </RelativeLayout>
